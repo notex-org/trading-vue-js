@@ -95,7 +95,7 @@ export default {
       return this.$props.settings.p2;
     },
     line_width() {
-      return this.sett.lineWidth || 3;
+      return this.sett.lineWidth || 2;
     },
     color() {
       return this.sett.color || "#645eff";

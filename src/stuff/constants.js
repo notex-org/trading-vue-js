@@ -15,8 +15,8 @@ const YEAR = DAY * 365
 
 const MONTHMAP = [
     "Jan", "Feb", "Mar", "Apr",
-    "May", "Jun","Jul", "Aug",
-    "Sep", "Oct","Nov", "Dec"
+    "May", "Jun", "Jul", "Aug",
+    "Sep", "Oct", "Nov", "Dec"
 ]
 
 // Grid time steps
@@ -45,7 +45,7 @@ const ChartConfig = {
     EXPAND: 0.15,    // %/100 of range
     CANDLEW: 0.6,    // %/100 of step
     GRIDX: 100,      // px
-    GRIDY: 47,       // px
+    GRIDY: 147,       // px
     BOTBAR: 28,      // px
     PANHEIGHT: 22,   // px
     DEFAULT_LEN: 50, // candles
@@ -72,25 +72,25 @@ const IB_TF_WARN =
     `otherwise you can get an unexpected behaviour`
 
 const MAP_UNIT = {
-  "1s": SECOND,
-  "5s": SECOND * 5,
-  "10s": SECOND * 10,
-  "20s": SECOND * 20,
-  "30s": SECOND * 30,
-  "1m": MINUTE,
-  "3m": MINUTE3,
-  "5m": MINUTE5,
-  "15m": MINUTE15,
-  "30m": MINUTE30,
-  "1H": HOUR,
-  "2H": HOUR * 2,
-  "3H": HOUR * 3,
-  "4H": HOUR4,
-  "12H": HOUR12,
-  "1D": DAY,
-  "1W": WEEK,
-  "1M": MONTH,
-  "1Y": YEAR
+    "1s": SECOND,
+    "5s": SECOND * 5,
+    "10s": SECOND * 10,
+    "20s": SECOND * 20,
+    "30s": SECOND * 30,
+    "1m": MINUTE,
+    "3m": MINUTE3,
+    "5m": MINUTE5,
+    "15m": MINUTE15,
+    "30m": MINUTE30,
+    "1H": HOUR,
+    "2H": HOUR * 2,
+    "3H": HOUR * 3,
+    "4H": HOUR4,
+    "12H": HOUR12,
+    "1D": DAY,
+    "1W": WEEK,
+    "1M": MONTH,
+    "1Y": YEAR
 }
 
 export default {

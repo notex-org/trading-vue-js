@@ -33,11 +33,11 @@ export default {
             settings: { extended: true },
             icon: Icons["extended.png"],
           },
-          Ray: {
-            // Rewrites the default setting fields
-            settings: { ray: true },
-            icon: Icons["ray.png"],
-          },
+          // Ray: {
+          //   // Rewrites the default setting fields
+          //   settings: { ray: true },
+          //   icon: Icons["ray.png"],
+          // },
         },
       };
     },

@@ -6249,14 +6249,12 @@ var Ray = /*#__PURE__*/function (_Line) {
               extended: true
             },
             icon: icons_namespaceObject["extended.png"]
-          },
-          Ray: {
-            // Rewrites the default setting fields
-            settings: {
-              ray: true
-            },
-            icon: icons_namespaceObject["ray.png"]
-          }
+          } // Ray: {
+          //   // Rewrites the default setting fields
+          //   settings: { ray: true },
+          //   icon: Icons["ray.png"],
+          // },
+
         }
       };
     },

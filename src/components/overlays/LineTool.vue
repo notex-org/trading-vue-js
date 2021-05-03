@@ -27,18 +27,18 @@ export default {
         data: [], // Default data
         settings: {}, // Default settings
         // Modifications
-        mods: {
-          Extended: {
-            // Rewrites the default setting fields
-            settings: { extended: true },
-            icon: Icons["extended.png"],
-          },
-          // Ray: {
-          //   // Rewrites the default setting fields
-          //   settings: { ray: true },
-          //   icon: Icons["ray.png"],
-          // },
-        },
+        // mods: {
+        //   Extended: {
+        //     // Rewrites the default setting fields
+        //     settings: { extended: true },
+        //     icon: Icons["extended.png"],
+        //   },
+        //   Ray: {
+        //     // Rewrites the default setting fields
+        //     settings: { ray: true },
+        //     icon: Icons["ray.png"],
+        //   },
+        // },
       };
     },
     // Called after overlay mounted

@@ -6239,23 +6239,21 @@ var Ray = /*#__PURE__*/function (_Line) {
         hint: "This hint will be shown on hover",
         data: [],
         // Default data
-        settings: {},
-        // Default settings
+        settings: {} // Default settings
         // Modifications
-        mods: {
-          Extended: {
-            // Rewrites the default setting fields
-            settings: {
-              extended: true
-            },
-            icon: icons_namespaceObject["extended.png"]
-          } // Ray: {
-          //   // Rewrites the default setting fields
-          //   settings: { ray: true },
-          //   icon: Icons["ray.png"],
-          // },
+        // mods: {
+        //   Extended: {
+        //     // Rewrites the default setting fields
+        //     settings: { extended: true },
+        //     icon: Icons["extended.png"],
+        //   },
+        //   Ray: {
+        //     // Rewrites the default setting fields
+        //     settings: { ray: true },
+        //     icon: Icons["ray.png"],
+        //   },
+        // },
 
-        }
       };
     },
     // Called after overlay mounted

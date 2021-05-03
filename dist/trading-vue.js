@@ -600,7 +600,7 @@ var ChartConfig = {
   // %/100 of step
   GRIDX: 100,
   // px
-  GRIDY: 100,
+  GRIDY: 47,
   // px
   BOTBAR: 28,
   // px
@@ -6221,36 +6221,36 @@ var Ray = /*#__PURE__*/function (_Line) {
 
 
 /* harmony default export */ const LineToolvue_type_script_lang_js_ = ({
-  name: 'LineTool',
+  name: "LineTool",
   mixins: [overlay, tool],
   methods: {
     meta_info: function meta_info() {
       return {
-        author: 'C451',
-        version: '1.1.0'
+        author: "C451",
+        version: "1.1.0"
       };
     },
     tool: function tool() {
       return {
         // Descriptor for the tool
-        group: 'Lines',
+        group: "Lines",
         icon: icons_namespaceObject["segment.png"],
-        type: 'Segment',
-        hint: 'This hint will be shown on hover',
+        type: "Segment",
+        hint: "This hint will be shown on hover",
         data: [],
         // Default data
         settings: {},
         // Default settings
         // Modifications
         mods: {
-          'Extended': {
+          Extended: {
             // Rewrites the default setting fields
             settings: {
               extended: true
             },
             icon: icons_namespaceObject["extended.png"]
           },
-          'Ray': {
+          Ray: {
             // Rewrites the default setting fields
             settings: {
               ray: true
@@ -6265,17 +6265,17 @@ var Ray = /*#__PURE__*/function (_Line) {
       var _this = this;
 
       // First pin is settled at the mouse position
-      this.pins.push(new Pin(this, 'p1')); // Second one is following mouse until it clicks
+      this.pins.push(new Pin(this, "p1")); // Second one is following mouse until it clicks
 
-      this.pins.push(new Pin(this, 'p2', {
-        state: 'tracking'
+      this.pins.push(new Pin(this, "p2", {
+        state: "tracking"
       }));
-      this.pins[1].on('settled', function () {
+      this.pins[1].on("settled", function () {
         // Call when current tool drawing is finished
         // (Optionally) reset the mode back to 'Cursor'
-        _this.set_state('finished');
+        _this.set_state("finished");
 
-        _this.$emit('drawing-mode-off');
+        _this.$emit("drawing-mode-off");
       });
     },
     draw: function draw(ctx) {
@@ -6296,7 +6296,7 @@ var Ray = /*#__PURE__*/function (_Line) {
       this.render_pins(ctx);
     },
     use_for: function use_for() {
-      return ['LineTool'];
+      return ["LineTool"];
     },
     data_colors: function data_colors() {
       return [this.color];
@@ -6314,10 +6314,10 @@ var Ray = /*#__PURE__*/function (_Line) {
       return this.$props.settings.p2;
     },
     line_width: function line_width() {
-      return this.sett.lineWidth || 0.9;
+      return this.sett.lineWidth || 1.9;
     },
     color: function color() {
-      return this.sett.color || '#42b28a';
+      return this.sett.color || "#42b28a";
     }
   },
   data: function data() {

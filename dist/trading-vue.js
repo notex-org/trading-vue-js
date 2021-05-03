@@ -6317,7 +6317,7 @@ var Ray = /*#__PURE__*/function (_Line) {
       return this.sett.lineWidth || 3;
     },
     color: function color() {
-      return this.sett.color || "#82f03a";
+      return this.sett.color || "#645eff";
     }
   },
   data: function data() {

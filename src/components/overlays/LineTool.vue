@@ -98,7 +98,7 @@ export default {
       return this.sett.lineWidth || 3;
     },
     color() {
-      return this.sett.color || "#42b28a";
+      return this.sett.color || "#82f03a";
     },
   },
   data() {

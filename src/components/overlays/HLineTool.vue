@@ -11,7 +11,7 @@ import Line from "../primitives/line.js";
 import Ray from "../primitives/ray.js";
 
 export default {
-  name: "LineTool",
+  name: "HLineTool",
   mixins: [Overlay, Tool],
   methods: {
     meta_info() {
@@ -21,11 +21,11 @@ export default {
       return {
         // Descriptor for the tool
         group: "Lines",
-        icon: Icons["extended.png"],
-        type: "Extended",
+        icon: Icons["ray.png"],
+        type: "Ray",
         hint: "This hint will be shown on hover",
         data: [], // Default data
-        settings: { extended: true }, // Default settings
+        settings: { ray: true }, // Default settings
         // Modifications
         // mods: {
         //   Extended: {

@@ -6234,30 +6234,28 @@ var Ray = /*#__PURE__*/function (_Line) {
       return {
         // Descriptor for the tool
         group: "Lines",
-        icon: icons_namespaceObject["segment.png"],
-        type: "Segment",
+        icon: icons_namespaceObject["extended.png"],
+        type: "Extended",
         hint: "This hint will be shown on hover",
         data: [],
         // Default data
-        settings: {},
-        // Default settings
+        settings: {
+          extended: true
+        } // Default settings
         // Modifications
-        mods: {
-          Extended: {
-            // Rewrites the default setting fields
-            settings: {
-              extended: true
-            },
-            icon: icons_namespaceObject["extended.png"]
-          },
-          Ray: {
-            // Rewrites the default setting fields
-            settings: {
-              ray: true
-            },
-            icon: icons_namespaceObject["ray.png"]
-          }
-        }
+        // mods: {
+        //   Extended: {
+        //     // Rewrites the default setting fields
+        //     settings: { extended: true },
+        //     icon: Icons["extended.png"],
+        //   },
+        //   Ray: {
+        //     // Rewrites the default setting fields
+        //     settings: { ray: true },
+        //     icon: Icons["ray.png"],
+        //   },
+        // },
+
       };
     },
     // Called after overlay mounted
@@ -6273,8 +6271,6 @@ var Ray = /*#__PURE__*/function (_Line) {
       this.pins[1].on("settled", function () {
         // Call when current tool drawing is finished
         // (Optionally) reset the mode back to 'Cursor'
-        console.log("pins[1] settled", _this.pins);
-
         _this.set_state("finished");
 
         _this.$emit("drawing-mode-off");

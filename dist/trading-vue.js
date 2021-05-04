@@ -6234,13 +6234,15 @@ var Ray = /*#__PURE__*/function (_Line) {
       return {
         // Descriptor for the tool
         //group: "Lines",
-        icon: icons_namespaceObject["segment.png"],
+        icon: icons_namespaceObject["extended.png"],
         //type: "Segment",
-        type: "Ray",
+        type: "Extended",
         hint: "This hint will be shown on hover",
         data: [],
         // Default data
-        settings: {} // Default settings
+        settings: {
+          extended: true
+        } // Default settings
         // Modifications
         // mods: {
         //   Extended: {

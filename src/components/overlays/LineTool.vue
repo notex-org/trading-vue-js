@@ -21,12 +21,13 @@ export default {
       return {
         // Descriptor for the tool
         //group: "Lines",
-        icon: Icons["segment.png"],
+        icon: Icons["extended.png"],
+
         //type: "Segment",
-        type: "Ray",
+        type: "Extended",
         hint: "This hint will be shown on hover",
         data: [], // Default data
-        settings: {}, // Default settings
+        settings: { extended: true }, // Default settings
         // Modifications
         // mods: {
         //   Extended: {

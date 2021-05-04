@@ -21,11 +21,11 @@ export default {
       return {
         // Descriptor for the tool
         group: "VLines",
-        icon: Icons["ray.png"],
-        type: "Ray",
+        icon: Icons["extended.png"],
+        type: "Extended",
         hint: "This hint will be shown on hover",
         data: [], // Default data
-        settings: { ray: true }, // Default settings
+        settings: { extended: true }, // Default settings
         // Modifications
         // mods: {
         //   Extended: {

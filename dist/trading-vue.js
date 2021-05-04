@@ -6233,30 +6233,31 @@ var Ray = /*#__PURE__*/function (_Line) {
     tool: function tool() {
       return {
         // Descriptor for the tool
-        //group: "Lines",
-        icon: icons_namespaceObject["extended.png"],
-        //type: "Segment",
-        type: "Extended",
+        group: "Lines",
+        icon: icons_namespaceObject["segment.png"],
+        type: "Segment",
         hint: "This hint will be shown on hover",
         data: [],
         // Default data
-        settings: {
-          extended: true
-        } // Default settings
+        settings: {},
+        // Default settings
         // Modifications
-        // mods: {
-        //   Extended: {
-        //     // Rewrites the default setting fields
-        //     settings: { extended: true },
-        //     icon: Icons["extended.png"],
-        //   },
-        //   Ray: {
-        //     // Rewrites the default setting fields
-        //     settings: { ray: true },
-        //     icon: Icons["ray.png"],
-        //   },
-        // },
-
+        mods: {
+          Extended: {
+            // Rewrites the default setting fields
+            settings: {
+              extended: true
+            },
+            icon: icons_namespaceObject["extended.png"]
+          },
+          Ray: {
+            // Rewrites the default setting fields
+            settings: {
+              ray: true
+            },
+            icon: icons_namespaceObject["ray.png"]
+          }
+        }
       };
     },
     // Called after overlay mounted

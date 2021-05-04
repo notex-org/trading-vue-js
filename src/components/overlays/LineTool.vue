@@ -23,7 +23,7 @@ export default {
         //group: "Lines",
         icon: Icons["segment.png"],
         //type: "Segment",
-        type: "Extended",
+        type: "Ray",
         hint: "This hint will be shown on hover",
         data: [], // Default data
         settings: {}, // Default settings

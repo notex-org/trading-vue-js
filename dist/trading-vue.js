@@ -6236,7 +6236,7 @@ var Ray = /*#__PURE__*/function (_Line) {
         //group: "Lines",
         icon: icons_namespaceObject["segment.png"],
         //type: "Segment",
-        type: "Extended",
+        type: "Ray",
         hint: "This hint will be shown on hover",
         data: [],
         // Default data

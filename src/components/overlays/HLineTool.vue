@@ -50,6 +50,7 @@ export default {
       // (Optionally) reset the mode back to 'Cursor'
       this.set_state("finished");
       this.$emit("drawing-mode-off");
+      console.log(this);
     },
     draw(ctx) {
       if (!this.p1) return;

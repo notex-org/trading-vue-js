@@ -6473,6 +6473,7 @@ var HLine = /*#__PURE__*/function () {
 
       this.set_state("finished");
       this.$emit("drawing-mode-off");
+      console.log(this);
     },
     draw: function draw(ctx) {
       if (!this.p1) return;

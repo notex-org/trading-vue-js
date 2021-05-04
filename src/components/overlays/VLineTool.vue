@@ -22,7 +22,7 @@ export default {
       return {
         // Descriptor for the tool
         //group: "VLines",
-        icon: Icons["extended.png"],
+        icon: Icons["vline.png"],
         type: "Extended",
         hint: "This hint will be shown on hover",
         data: [], // Default data

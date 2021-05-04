@@ -56,6 +56,10 @@ export default {
 
       ctx.lineWidth = this.line_width;
       ctx.strokeStyle = this.color;
+
+      ctx.fillStyle = this.color;
+      ctx.font = "12px Arial";
+
       ctx.beginPath();
 
       new HLine(this, ctx).draw(this.p1);

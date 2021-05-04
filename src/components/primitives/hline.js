@@ -48,11 +48,9 @@ export default class HLine {
         let x = x2 + dx;
         let y = y2 + dy;
         console.log(x, y);
-        ctx.fillStyle = this.color;
-        ctx.font = "12px Arial";
 
         // Helper labels
-        ctx.fillText(p1[1].toFixed(2), x + 10, y - 4);
+        this.ctx.fillText(p1[1].toFixed(2), x + 10, y - 4);
 
         this.comp.collisions.push(
             this.make([x1, y1], [x2, y2])

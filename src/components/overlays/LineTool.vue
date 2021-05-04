@@ -20,7 +20,7 @@ export default {
     tool() {
       return {
         // Descriptor for the tool
-        group: "Lines",
+        //group: "Lines",
         icon: Icons["segment.png"],
         type: "Segment",
         hint: "This hint will be shown on hover",

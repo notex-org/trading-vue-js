@@ -1,5 +1,5 @@
 /*!
- * TradingVue.JS - v1.0.2 - Mon May 03 2021
+ * TradingVue.JS - v1.0.2 - Tue May 04 2021
  *     https://github.com/tvjsx/trading-vue-js
  *     Copyright (c) 2019 C451 Code's All Right;
  *     Licensed under the MIT license
@@ -6233,7 +6233,7 @@ var Ray = /*#__PURE__*/function (_Line) {
     tool: function tool() {
       return {
         // Descriptor for the tool
-        group: "Lines",
+        //group: "Lines",
         icon: icons_namespaceObject["segment.png"],
         type: "Segment",
         hint: "This hint will be shown on hover",

@@ -6401,8 +6401,8 @@ var HLine = /*#__PURE__*/function () {
       var x = x2 + dx;
       var y = y2 + dy;
       console.log(x, y); // Helper labels
+      //this.ctx.fillText(p1[1].toFixed(2), x + 10, y - 4);
 
-      this.ctx.fillText(p1[1].toFixed(2), x + 10, y - 4);
       this.comp.collisions.push(this.make([x1, y1], [x2, y2]));
     } // Collision function. x, y - mouse coord.
 

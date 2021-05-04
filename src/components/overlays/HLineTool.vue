@@ -70,7 +70,7 @@ export default {
       ctx.font = "12px Arial";
 
       // Helper labels
-      ctx.fillText(this.p1[1], x + 10, y - 14);
+      ctx.fillText(this.p1[1], x + 10, y);
 
       this.render_pins(ctx);
     },

@@ -77,7 +77,7 @@ export default {
       this.render_pins(ctx);
     },
     use_for() {
-      return ["LineTool"];
+      return ["HLineTool"];
     },
     data_colors() {
       return [this.color];

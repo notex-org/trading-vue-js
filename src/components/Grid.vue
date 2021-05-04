@@ -19,6 +19,7 @@ import Volume from "./overlays/Volume.vue";
 import Splitters from "./overlays/Splitters.vue";
 import LineTool from "./overlays/LineTool.vue";
 import HLineTool from "./overlays/HLineTool.vue";
+import VLineTool from "./overlays/VLineTool.vue";
 import RangeTool from "./overlays/RangeTool.vue";
 
 export default {

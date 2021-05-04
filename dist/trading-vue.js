@@ -395,7 +395,7 @@ module.exports.isSortableArrayLike = function (o) {
 
 /***/ }),
 
-/***/ 923:
+/***/ 603:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -6484,6 +6484,143 @@ var HLineTool_component = normalizeComponent(
 if (false) { var HLineTool_api; }
 HLineTool_component.options.__file = "src/components/overlays/HLineTool.vue"
 /* harmony default export */ const HLineTool = (HLineTool_component.exports);
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/components/overlays/VLineTool.vue?vue&type=script&lang=js&
+// Line drawing tool
+// TODO: make an angle-snap when "Shift" is pressed
+
+
+
+
+
+
+
+/* harmony default export */ const VLineToolvue_type_script_lang_js_ = ({
+  name: "VLineTool",
+  mixins: [overlay, tool],
+  methods: {
+    meta_info: function meta_info() {
+      return {
+        author: "C451",
+        version: "1.1.0"
+      };
+    },
+    tool: function tool() {
+      return {
+        // Descriptor for the tool
+        group: "VLines",
+        icon: icons_namespaceObject["ray.png"],
+        type: "Ray",
+        hint: "This hint will be shown on hover",
+        data: [],
+        // Default data
+        settings: {
+          ray: true
+        } // Default settings
+        // Modifications
+        // mods: {
+        //   Extended: {
+        //     // Rewrites the default setting fields
+        //     settings: { extended: true },
+        //     icon: Icons["extended.png"],
+        //   },
+        //   Ray: {
+        //     // Rewrites the default setting fields
+        //     settings: { ray: true },
+        //     icon: Icons["ray.png"],
+        //   },
+        // },
+
+      };
+    },
+    // Called after overlay mounted
+    init: function init() {
+      var _this = this;
+
+      // First pin is settled at the mouse position
+      this.pins.push(new Pin(this, "p1")); // Second one is following mouse until it clicks
+
+      this.pins.push(new Pin(this, "p2", {
+        state: "tracking"
+      }));
+      this.pins[1].on("settled", function () {
+        // Call when current tool drawing is finished
+        // (Optionally) reset the mode back to 'Cursor'
+        _this.set_state("finished");
+
+        _this.$emit("drawing-mode-off");
+      });
+    },
+    draw: function draw(ctx) {
+      if (!this.p1 || !this.p2) return;
+      ctx.lineWidth = this.line_width;
+      ctx.strokeStyle = this.color;
+      ctx.beginPath();
+
+      if (this.sett.ray) {
+        new Ray(this, ctx).draw(this.p1, this.p2);
+      } else if (this.sett.extended) {
+        new Line(this, ctx).draw(this.p1, this.p2);
+      } else {
+        new Seg(this, ctx).draw(this.p1, this.p2);
+      }
+
+      ctx.stroke();
+      this.render_pins(ctx);
+    },
+    use_for: function use_for() {
+      return ["VLineTool"];
+    },
+    data_colors: function data_colors() {
+      return [this.color];
+    }
+  },
+  // Define internal setting & constants here
+  computed: {
+    sett: function sett() {
+      return this.$props.settings;
+    },
+    p1: function p1() {
+      return this.$props.settings.p1;
+    },
+    p2: function p2() {
+      return this.$props.settings.p2;
+    },
+    line_width: function line_width() {
+      return this.sett.lineWidth || 2;
+    },
+    color: function color() {
+      return this.sett.color || "#645eff";
+    }
+  },
+  data: function data() {
+    return {};
+  }
+});
+;// CONCATENATED MODULE: ./src/components/overlays/VLineTool.vue?vue&type=script&lang=js&
+ /* harmony default export */ const overlays_VLineToolvue_type_script_lang_js_ = (VLineToolvue_type_script_lang_js_); 
+;// CONCATENATED MODULE: ./src/components/overlays/VLineTool.vue
+var VLineTool_render, VLineTool_staticRenderFns
+;
+
+
+
+/* normalize component */
+;
+var VLineTool_component = normalizeComponent(
+  overlays_VLineToolvue_type_script_lang_js_,
+  VLineTool_render,
+  VLineTool_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var VLineTool_api; }
+VLineTool_component.options.__file = "src/components/overlays/VLineTool.vue"
+/* harmony default export */ const VLineTool = (VLineTool_component.exports);
 ;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/components/overlays/RangeTool.vue?vue&type=script&lang=js&
 
 // Price/Time measurment tool
@@ -6800,6 +6937,7 @@ function Gridvue_type_script_lang_js_unsupportedIterableToArray(o, minLen) { if 
 function Gridvue_type_script_lang_js_arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 // Sets up all layers/overlays for the grid with 'grid_id'
+
 
 
 
@@ -18918,7 +19056,7 @@ function applyToTag (styleElement, obj) {
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module doesn't tell about it's top-level declarations so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__(923);
+/******/ 	var __webpack_exports__ = __webpack_require__(603);
 /******/ 	
 /******/ 	return __webpack_exports__;
 /******/ })()

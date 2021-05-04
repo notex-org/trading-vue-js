@@ -6273,7 +6273,7 @@ var Ray = /*#__PURE__*/function (_Line) {
       this.pins[1].on("settled", function () {
         // Call when current tool drawing is finished
         // (Optionally) reset the mode back to 'Cursor'
-        console.log("pins[1] settled", _this.pins[1]);
+        console.log("pins[1] settled", _this.pins);
 
         _this.set_state("finished");
 

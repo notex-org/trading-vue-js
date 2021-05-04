@@ -395,7 +395,7 @@ module.exports.isSortableArrayLike = function (o) {
 
 /***/ }),
 
-/***/ 851:
+/***/ 923:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -6347,6 +6347,143 @@ var LineTool_component = normalizeComponent(
 if (false) { var LineTool_api; }
 LineTool_component.options.__file = "src/components/overlays/LineTool.vue"
 /* harmony default export */ const LineTool = (LineTool_component.exports);
+;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/components/overlays/HLineTool.vue?vue&type=script&lang=js&
+// Line drawing tool
+// TODO: make an angle-snap when "Shift" is pressed
+
+
+
+
+
+
+
+/* harmony default export */ const HLineToolvue_type_script_lang_js_ = ({
+  name: "HLineTool",
+  mixins: [overlay, tool],
+  methods: {
+    meta_info: function meta_info() {
+      return {
+        author: "C451",
+        version: "1.1.0"
+      };
+    },
+    tool: function tool() {
+      return {
+        // Descriptor for the tool
+        group: "Lines",
+        icon: icons_namespaceObject["ray.png"],
+        type: "Ray",
+        hint: "This hint will be shown on hover",
+        data: [],
+        // Default data
+        settings: {
+          ray: true
+        } // Default settings
+        // Modifications
+        // mods: {
+        //   Extended: {
+        //     // Rewrites the default setting fields
+        //     settings: { extended: true },
+        //     icon: Icons["extended.png"],
+        //   },
+        //   Ray: {
+        //     // Rewrites the default setting fields
+        //     settings: { ray: true },
+        //     icon: Icons["ray.png"],
+        //   },
+        // },
+
+      };
+    },
+    // Called after overlay mounted
+    init: function init() {
+      var _this = this;
+
+      // First pin is settled at the mouse position
+      this.pins.push(new Pin(this, "p1")); // Second one is following mouse until it clicks
+
+      this.pins.push(new Pin(this, "p2", {
+        state: "tracking"
+      }));
+      this.pins[1].on("settled", function () {
+        // Call when current tool drawing is finished
+        // (Optionally) reset the mode back to 'Cursor'
+        _this.set_state("finished");
+
+        _this.$emit("drawing-mode-off");
+      });
+    },
+    draw: function draw(ctx) {
+      if (!this.p1 || !this.p2) return;
+      ctx.lineWidth = this.line_width;
+      ctx.strokeStyle = this.color;
+      ctx.beginPath();
+
+      if (this.sett.ray) {
+        new Ray(this, ctx).draw(this.p1, this.p2);
+      } else if (this.sett.extended) {
+        new Line(this, ctx).draw(this.p1, this.p2);
+      } else {
+        new Seg(this, ctx).draw(this.p1, this.p2);
+      }
+
+      ctx.stroke();
+      this.render_pins(ctx);
+    },
+    use_for: function use_for() {
+      return ["HLineTool"];
+    },
+    data_colors: function data_colors() {
+      return [this.color];
+    }
+  },
+  // Define internal setting & constants here
+  computed: {
+    sett: function sett() {
+      return this.$props.settings;
+    },
+    p1: function p1() {
+      return this.$props.settings.p1;
+    },
+    p2: function p2() {
+      return this.$props.settings.p2;
+    },
+    line_width: function line_width() {
+      return this.sett.lineWidth || 2;
+    },
+    color: function color() {
+      return this.sett.color || "#645eff";
+    }
+  },
+  data: function data() {
+    return {};
+  }
+});
+;// CONCATENATED MODULE: ./src/components/overlays/HLineTool.vue?vue&type=script&lang=js&
+ /* harmony default export */ const overlays_HLineToolvue_type_script_lang_js_ = (HLineToolvue_type_script_lang_js_); 
+;// CONCATENATED MODULE: ./src/components/overlays/HLineTool.vue
+var HLineTool_render, HLineTool_staticRenderFns
+;
+
+
+
+/* normalize component */
+;
+var HLineTool_component = normalizeComponent(
+  overlays_HLineToolvue_type_script_lang_js_,
+  HLineTool_render,
+  HLineTool_staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var HLineTool_api; }
+HLineTool_component.options.__file = "src/components/overlays/HLineTool.vue"
+/* harmony default export */ const HLineTool = (HLineTool_component.exports);
 ;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/components/overlays/RangeTool.vue?vue&type=script&lang=js&
 
 // Price/Time measurment tool
@@ -6680,9 +6817,10 @@ function Gridvue_type_script_lang_js_arrayLikeToArray(arr, len) { if (len == nul
 
 
 
+
 /* harmony default export */ const Gridvue_type_script_lang_js_ = ({
-  name: 'Grid',
-  props: ['sub', 'layout', 'range', 'interval', 'cursor', 'colors', 'overlays', 'width', 'height', 'data', 'grid_id', 'y_transform', 'font', 'tv_id', 'config', 'meta', 'shaders'],
+  name: "Grid",
+  props: ["sub", "layout", "range", "interval", "cursor", "colors", "overlays", "width", "height", "data", "grid_id", "y_transform", "font", "tv_id", "config", "meta", "shaders"],
   mixins: [canvas, uxlist],
   components: {
     Crosshair: components_Crosshair,
@@ -6692,7 +6830,7 @@ function Gridvue_type_script_lang_js_arrayLikeToArray(arr, len) { if (len == nul
     var _this = this;
 
     // List of all possible overlays (builtin + custom)
-    this._list = [Spline, Splines, Range, Trades, Channel, Segment, Candles, Volume, Splitters, LineTool, RangeTool].concat(this.$props.overlays);
+    this._list = [Spline, Splines, Range, Trades, Channel, Segment, Candles, Volume, Splitters, LineTool, HLineTool, RangeTool].concat(this.$props.overlays);
     this._registry = {}; // We need to know which components we will use.
     // Custom overlay components overwrite built-ins:
 
@@ -6709,12 +6847,12 @@ function Gridvue_type_script_lang_js_arrayLikeToArray(arr, len) { if (len == nul
       });
     });
 
-    this.$emit('custom-event', {
-      event: 'register-tools',
+    this.$emit("custom-event", {
+      event: "register-tools",
       args: tools
     });
-    this.$on('custom-event', function (e) {
-      return _this.on_ux_event(e, 'grid');
+    this.$on("custom-event", function (e) {
+      return _this.on_ux_event(e, "grid");
     });
   },
   beforeDestroy: function beforeDestroy() {
@@ -6723,7 +6861,7 @@ function Gridvue_type_script_lang_js_arrayLikeToArray(arr, len) { if (len == nul
   mounted: function mounted() {
     var _this2 = this;
 
-    var el = this.$refs['canvas'];
+    var el = this.$refs["canvas"];
     this.renderer = new Grid(el, this);
     this.setup();
     this.$nextTick(function () {
@@ -6741,7 +6879,7 @@ function Gridvue_type_script_lang_js_arrayLikeToArray(arr, len) { if (len == nul
       attrs: {
         width: layout.width,
         height: layout.height,
-        overflow: 'hidden'
+        overflow: "hidden"
       },
       style: {
         backgroundColor: this.$props.colors.back
@@ -6761,7 +6899,7 @@ function Gridvue_type_script_lang_js_arrayLikeToArray(arr, len) { if (len == nul
           updater: Math.random()
         },
         on: {
-          'custom-event': this.emit_ux_event
+          "custom-event": this.emit_ux_event
         }
       })].concat(this.get_overlays(h))
     });
@@ -6781,13 +6919,13 @@ function Gridvue_type_script_lang_js_arrayLikeToArray(arr, len) { if (len == nul
         return _this4.renderer.del_layer(layer);
       });
       var grid_id = this.$props.grid_id;
-      this.$emit('custom-event', {
-        event: 'remove-shaders',
+      this.$emit("custom-event", {
+        event: "remove-shaders",
         args: [grid_id, layer]
       }); // TODO: close all interfaces
 
-      this.$emit('custom-event', {
-        event: 'remove-layer-meta',
+      this.$emit("custom-event", {
+        event: "remove-layer-meta",
         args: [grid_id, layer]
       });
       this.remove_all_ux(layer);
@@ -6861,8 +6999,8 @@ function Gridvue_type_script_lang_js_arrayLikeToArray(arr, len) { if (len == nul
       };
     },
     emit_ux_event: function emit_ux_event(e) {
-      var e_pass = this.on_ux_event(e, 'grid');
-      if (e_pass) this.$emit('custom-event', e);
+      var e_pass = this.on_ux_event(e, "grid");
+      if (e_pass) this.$emit("custom-event", e);
     },
     // Replace the current comp with 'renderer'
     inject_renderer: function inject_renderer(comp) {
@@ -6926,11 +7064,11 @@ function Gridvue_type_script_lang_js_arrayLikeToArray(arr, len) { if (len == nul
             try {
               for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
                 var comp = _step3.value;
-                if (typeof comp.id !== 'string') continue;
-                var tuple = comp.id.split('_');
+                if (typeof comp.id !== "string") continue;
+                var tuple = comp.id.split("_");
                 tuple.pop();
 
-                if (tuple.join('_') === ov.name) {
+                if (tuple.join("_") === ov.name) {
                   comp.calc = ov.methods.calc;
                   if (!comp.calc) continue;
                   var calc = comp.calc.toString();
@@ -6966,42 +7104,42 @@ function Gridvue_type_script_lang_js_arrayLikeToArray(arr, len) { if (len == nul
 
     return {
       layer_events: {
-        'new-grid-layer': this.new_layer,
-        'delete-grid-layer': this.del_layer,
-        'show-grid-layer': function showGridLayer(d) {
+        "new-grid-layer": this.new_layer,
+        "delete-grid-layer": this.del_layer,
+        "show-grid-layer": function showGridLayer(d) {
           _this7.renderer.show_hide_layer(d);
 
           _this7.redraw();
         },
-        'redraw-grid': this.redraw,
-        'layer-meta-props': function layerMetaProps(d) {
-          return _this7.$emit('layer-meta-props', d);
+        "redraw-grid": this.redraw,
+        "layer-meta-props": function layerMetaProps(d) {
+          return _this7.$emit("layer-meta-props", d);
         },
-        'custom-event': function customEvent(d) {
-          return _this7.$emit('custom-event', d);
+        "custom-event": function customEvent(d) {
+          return _this7.$emit("custom-event", d);
         }
       },
       keyboard_events: {
-        'register-kb-listener': function registerKbListener(event) {
-          _this7.$emit('register-kb-listener', event);
+        "register-kb-listener": function registerKbListener(event) {
+          _this7.$emit("register-kb-listener", event);
         },
-        'remove-kb-listener': function removeKbListener(event) {
-          _this7.$emit('remove-kb-listener', event);
+        "remove-kb-listener": function removeKbListener(event) {
+          _this7.$emit("remove-kb-listener", event);
         },
-        'keyup': function keyup(event) {
+        keyup: function keyup(event) {
           if (!_this7.is_active) return;
 
-          _this7.renderer.propagate('keyup', event);
+          _this7.renderer.propagate("keyup", event);
         },
-        'keydown': function keydown(event) {
+        keydown: function keydown(event) {
           if (!_this7.is_active) return; // TODO: is this neeeded?
 
-          _this7.renderer.propagate('keydown', event);
+          _this7.renderer.propagate("keydown", event);
         },
-        'keypress': function keypress(event) {
+        keypress: function keypress(event) {
           if (!_this7.is_active) return;
 
-          _this7.renderer.propagate('keypress', event);
+          _this7.renderer.propagate("keypress", event);
         }
       }
     };
@@ -18780,7 +18918,7 @@ function applyToTag (styleElement, obj) {
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module doesn't tell about it's top-level declarations so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__(851);
+/******/ 	var __webpack_exports__ = __webpack_require__(923);
 /******/ 	
 /******/ 	return __webpack_exports__;
 /******/ })()

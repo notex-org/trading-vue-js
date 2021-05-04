@@ -6483,7 +6483,7 @@ var HLine = /*#__PURE__*/function () {
       ctx.stroke(); //console.log(this.p1[0], this.p1[1]);
 
       console.log(this.layout);
-      var x = this.layout.t2screen(this.p1[0]);
+      var x = this.layout.width - 100;
       var y = this.layout.$2screen(this.p1[1]); //console.log(x, y);
 
       ctx.fillStyle = this.color;

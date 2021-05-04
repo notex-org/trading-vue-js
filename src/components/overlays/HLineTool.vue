@@ -62,8 +62,8 @@ export default {
 
       ctx.stroke();
 
-      let x = this.layout.t2screen(this.sett.t);
-      let y = this.layout.$2screen(this.sett.$);
+      let x = this.layout.t2screen(this.p1.t);
+      let y = this.layout.$2screen(this.p1.$);
       ctx.fillStyle = this.color;
       ctx.font = "16px Arial";
 

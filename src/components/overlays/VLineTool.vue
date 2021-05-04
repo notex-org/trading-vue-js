@@ -11,7 +11,7 @@ import Line from "../primitives/line.js";
 import Ray from "../primitives/ray.js";
 
 export default {
-  name: "HLineTool",
+  name: "VLineTool",
   mixins: [Overlay, Tool],
   methods: {
     meta_info() {
@@ -20,7 +20,7 @@ export default {
     tool() {
       return {
         // Descriptor for the tool
-        group: "HLines",
+        group: "VLines",
         icon: Icons["ray.png"],
         type: "Ray",
         hint: "This hint will be shown on hover",
@@ -77,7 +77,7 @@ export default {
       this.render_pins(ctx);
     },
     use_for() {
-      return ["HLineTool"];
+      return ["VLineTool"];
     },
     data_colors() {
       return [this.color];

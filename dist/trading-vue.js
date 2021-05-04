@@ -6370,7 +6370,7 @@ LineTool_component.options.__file = "src/components/overlays/LineTool.vue"
     tool: function tool() {
       return {
         // Descriptor for the tool
-        group: "Lines",
+        group: "HLines",
         icon: icons_namespaceObject["ray.png"],
         type: "Ray",
         hint: "This hint will be shown on hover",
@@ -6830,7 +6830,7 @@ function Gridvue_type_script_lang_js_arrayLikeToArray(arr, len) { if (len == nul
     var _this = this;
 
     // List of all possible overlays (builtin + custom)
-    this._list = [Spline, Splines, Range, Trades, Channel, Segment, Candles, Volume, Splitters, LineTool, HLineTool, RangeTool].concat(this.$props.overlays);
+    this._list = [Spline, Splines, Range, Trades, Channel, Segment, Candles, Volume, Splitters, LineTool, HLineTool, VLineTool, RangeTool].concat(this.$props.overlays);
     this._registry = {}; // We need to know which components we will use.
     // Custom overlay components overwrite built-ins:
 

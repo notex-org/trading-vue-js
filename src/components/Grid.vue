@@ -58,6 +58,7 @@ export default {
       Splitters,
       LineTool,
       HLineTool,
+      VLineTool,
       RangeTool,
     ].concat(this.$props.overlays);
     this._registry = {};

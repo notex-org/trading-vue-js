@@ -61,6 +61,15 @@ export default {
       new HLine(this, ctx).draw(this.p1);
 
       ctx.stroke();
+
+      let x = this.layout.t2screen(this.sett.t);
+      let y = this.layout.$2screen(this.sett.$);
+      ctx.fillStyle = this.color;
+      ctx.font = "16px Arial";
+
+      // Helper labels
+      ctx.fillText("hline", x + 10, y + 20);
+
       this.render_pins(ctx);
     },
     use_for() {

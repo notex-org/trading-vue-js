@@ -60,7 +60,7 @@ export default {
       LineTool,
       HLineTool,
       VLineTool,
-      RangeTool,
+      //RangeTool,
     ].concat(this.$props.overlays);
     this._registry = {};
 

@@ -56,15 +56,21 @@ export default {
 
       ctx.lineWidth = this.line_width;
       ctx.strokeStyle = this.color;
-
-      ctx.fillStyle = this.color;
-      ctx.font = "12px Arial";
-
       ctx.beginPath();
 
       new HLine(this, ctx).draw(this.p1);
 
       ctx.stroke();
+
+      //console.log(this.p1[0], this.p1[1]);
+      let x = this.layout.t2screen(this.p1[0]);
+      let y = this.layout.$2screen(this.p1[1]);
+      //console.log(x, y);
+      ctx.fillStyle = this.color;
+      ctx.font = "12px Arial";
+
+      // Helper labels
+      ctx.fillText(this.p1[1].toFixed(this.prec), x + 10, y - 4);
 
       this.render_pins(ctx);
     },

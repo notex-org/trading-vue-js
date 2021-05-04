@@ -44,14 +44,6 @@ export default class HLine {
             this.ctx.lineTo(x1 - dx, y1 - dy)
         }
 
-        //console.log(this.p1[0], this.p1[1]);
-        let x = x2 + dx;
-        let y = y2 + dy;
-        console.log(x, y);
-
-        // Helper labels
-        //this.ctx.fillText(p1[1].toFixed(2), x + 10, y - 4);
-
         this.comp.collisions.push(
             this.make([x1, y1], [x2, y2])
         )

@@ -6482,6 +6482,7 @@ var HLine = /*#__PURE__*/function () {
       new HLine(this, ctx).draw(this.p1);
       ctx.stroke(); //console.log(this.p1[0], this.p1[1]);
 
+      console.log(this.layout);
       var x = this.layout.t2screen(this.p1[0]);
       var y = this.layout.$2screen(this.p1[1]); //console.log(x, y);
 

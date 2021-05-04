@@ -63,6 +63,7 @@ export default {
       ctx.stroke();
 
       //console.log(this.p1[0], this.p1[1]);
+      console.log(this.layout);
       let x = this.layout.t2screen(this.p1[0]);
       let y = this.layout.$2screen(this.p1[1]);
       //console.log(x, y);

@@ -6482,9 +6482,9 @@ var HLine = /*#__PURE__*/function () {
       new HLine(this, ctx).draw(this.p1);
       console.log(this.p1);
       ctx.stroke();
-      console.log(this.p1.t, this.p1.$);
-      var x = this.layout.t2screen(this.p1.t);
-      var y = this.layout.$2screen(this.p1.$);
+      console.log(this.p1[0], this.p1[1]);
+      var x = this.layout.t2screen(this.p1[0]);
+      var y = this.layout.$2screen(this.p1[1]);
       console.log(x, y);
       ctx.fillStyle = this.color;
       ctx.font = "16px Arial"; // Helper labels

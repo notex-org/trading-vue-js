@@ -6480,6 +6480,7 @@ var HLine = /*#__PURE__*/function () {
       ctx.strokeStyle = this.color;
       ctx.beginPath();
       new HLine(this, ctx).draw(this.p1);
+      console.log(this.p1);
       ctx.stroke();
       var x = this.layout.t2screen(this.p1.t);
       var y = this.layout.$2screen(this.p1.$);

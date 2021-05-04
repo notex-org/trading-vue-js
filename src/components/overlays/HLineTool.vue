@@ -59,6 +59,7 @@ export default {
       ctx.beginPath();
 
       new HLine(this, ctx).draw(this.p1);
+      console.log(this.p1);
 
       ctx.stroke();
 

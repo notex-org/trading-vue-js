@@ -6312,7 +6312,7 @@ var Ray = /*#__PURE__*/function (_Line) {
       return this.$props.settings.p2;
     },
     line_width: function line_width() {
-      return this.sett.lineWidth || 2;
+      return this.sett.lineWidth || 1;
     },
     color: function color() {
       return this.sett.color || "#645eff";
@@ -6518,7 +6518,7 @@ var HLine = /*#__PURE__*/function () {
       return this.sett.color || "#645eff";
     },
     prec: function prec() {
-      return this.sett.precision || 2;
+      return this.sett.precision || 1;
     }
   },
   data: function data() {
@@ -6705,7 +6705,7 @@ var VLine = /*#__PURE__*/function () {
       return this.$props.settings.p2;
     },
     line_width: function line_width() {
-      return this.sett.lineWidth || 2;
+      return this.sett.lineWidth || 1;
     },
     color: function color() {
       return this.sett.color || "#645eff";

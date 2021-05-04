@@ -101,7 +101,7 @@ export default {
       return this.sett.color || "#645eff";
     },
     prec() {
-      return this.sett.precision || 2;
+      return this.sett.precision || 1;
     },
   },
   data() {

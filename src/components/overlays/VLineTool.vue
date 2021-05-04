@@ -8,6 +8,7 @@ import Icons from "../../stuff/icons.json";
 import Pin from "../primitives/pin.js";
 import Seg from "../primitives/seg.js";
 import Line from "../primitives/line.js";
+import VLine from "../primitives/vline.js";
 import Ray from "../primitives/ray.js";
 
 export default {
@@ -45,34 +46,19 @@ export default {
     init() {
       // First pin is settled at the mouse position
       this.pins.push(new Pin(this, "p1"));
-      // Second one is following mouse until it clicks
-      this.pins.push(
-        new Pin(this, "p2", {
-          state: "tracking",
-        })
-      );
-      this.pins[1].on("settled", () => {
-        // Call when current tool drawing is finished
-        // (Optionally) reset the mode back to 'Cursor'
-        this.set_state("finished");
-        this.$emit("drawing-mode-off");
-      });
+      // Call when current tool drawing is finished
+      // (Optionally) reset the mode back to 'Cursor'
+      this.set_state("finished");
+      this.$emit("drawing-mode-off");
     },
     draw(ctx) {
-      if (!this.p1 || !this.p2) return;
+      if (!this.p1) return;
 
       ctx.lineWidth = this.line_width;
       ctx.strokeStyle = this.color;
       ctx.beginPath();
 
-      if (this.sett.ray) {
-        new Ray(this, ctx).draw(this.p1, this.p2);
-      } else if (this.sett.extended) {
-        new Line(this, ctx).draw(this.p1, this.p2);
-      } else {
-        new Seg(this, ctx).draw(this.p1, this.p2);
-      }
-
+      new VLine(this, ctx).draw(this.p1);
       ctx.stroke();
       this.render_pins(ctx);
     },

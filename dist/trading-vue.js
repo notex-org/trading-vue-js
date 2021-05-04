@@ -395,7 +395,7 @@ module.exports.isSortableArrayLike = function (o) {
 
 /***/ }),
 
-/***/ 315:
+/***/ 295:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -6537,9 +6537,79 @@ var HLineTool_component = normalizeComponent(
 if (false) { var HLineTool_api; }
 HLineTool_component.options.__file = "src/components/overlays/HLineTool.vue"
 /* harmony default export */ const HLineTool = (HLineTool_component.exports);
+;// CONCATENATED MODULE: ./src/components/primitives/vline.js
+
+
+// Draws a Hline, adds corresponding collision f-n
+
+
+
+var VLine = /*#__PURE__*/function () {
+  // Overlay ref, canvas ctx
+  function VLine(overlay, ctx) {
+    classCallCheck_classCallCheck(this, VLine);
+
+    this.ctx = ctx;
+    this.comp = overlay;
+    this.T = overlay.$props.config.TOOL_COLL;
+    if (utils.is_mobile) this.T *= 2;
+  } // p1[t, $], p2[t, $] (time-price coordinates)
+
+
+  createClass_createClass(VLine, [{
+    key: "draw",
+    value: function draw(p1) {
+      var layout = this.comp.$props.layout;
+      var x1 = layout.t2screen(p1[0]);
+      var y1 = layout.$2screen(p1[1]);
+      var x2 = x1;
+      var y2 = y1 + 1;
+      this.ctx.moveTo(x1, y1);
+      this.ctx.lineTo(x2, y2);
+      var w = layout.width;
+      var h = layout.height; // TODO: transform k (angle) to screen ratio
+      // (this requires a new a2screen function)
+
+      var k = (y2 - y1) / (x2 - x1);
+      var s = Math.sign(x2 - x1 || y2 - y1);
+      var dx = w * s * 2;
+      var dy = w * k * s * 2;
+
+      if (dy === Infinity) {
+        dx = 0, dy = h * s;
+      }
+
+      this.ctx.moveTo(x2, y2);
+      this.ctx.lineTo(x2 + dx, y2 + dy);
+
+      if (!this.ray) {
+        this.ctx.moveTo(x1, y1);
+        this.ctx.lineTo(x1 - dx, y1 - dy);
+      }
+
+      this.comp.collisions.push(this.make([x1, y1], [x2, y2]));
+    } // Collision function. x, y - mouse coord.
+
+  }, {
+    key: "make",
+    value: function make(p1, p2) {
+      var _this = this;
+
+      var f = this.ray ? math.point2ray.bind(math) : math.point2line.bind(math);
+      return function (x, y) {
+        return f([x, y], p1, p2) < _this.T;
+      };
+    }
+  }]);
+
+  return VLine;
+}();
+
+
 ;// CONCATENATED MODULE: ./node_modules/babel-loader/lib/index.js!./node_modules/vue-loader/lib/index.js??vue-loader-options!./src/components/overlays/VLineTool.vue?vue&type=script&lang=js&
 // Line drawing tool
 // TODO: make an angle-snap when "Shift" is pressed
+
 
 
 
@@ -6587,36 +6657,19 @@ HLineTool_component.options.__file = "src/components/overlays/HLineTool.vue"
     },
     // Called after overlay mounted
     init: function init() {
-      var _this = this;
-
       // First pin is settled at the mouse position
-      this.pins.push(new Pin(this, "p1")); // Second one is following mouse until it clicks
+      this.pins.push(new Pin(this, "p1")); // Call when current tool drawing is finished
+      // (Optionally) reset the mode back to 'Cursor'
 
-      this.pins.push(new Pin(this, "p2", {
-        state: "tracking"
-      }));
-      this.pins[1].on("settled", function () {
-        // Call when current tool drawing is finished
-        // (Optionally) reset the mode back to 'Cursor'
-        _this.set_state("finished");
-
-        _this.$emit("drawing-mode-off");
-      });
+      this.set_state("finished");
+      this.$emit("drawing-mode-off");
     },
     draw: function draw(ctx) {
-      if (!this.p1 || !this.p2) return;
+      if (!this.p1) return;
       ctx.lineWidth = this.line_width;
       ctx.strokeStyle = this.color;
       ctx.beginPath();
-
-      if (this.sett.ray) {
-        new Ray(this, ctx).draw(this.p1, this.p2);
-      } else if (this.sett.extended) {
-        new Line(this, ctx).draw(this.p1, this.p2);
-      } else {
-        new Seg(this, ctx).draw(this.p1, this.p2);
-      }
-
+      new VLine(this, ctx).draw(this.p1);
       ctx.stroke();
       this.render_pins(ctx);
     },
@@ -19109,7 +19162,7 @@ function applyToTag (styleElement, obj) {
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module doesn't tell about it's top-level declarations so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__(315);
+/******/ 	var __webpack_exports__ = __webpack_require__(295);
 /******/ 	
 /******/ 	return __webpack_exports__;
 /******/ })()

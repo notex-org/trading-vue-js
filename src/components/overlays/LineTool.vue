@@ -22,7 +22,8 @@ export default {
         // Descriptor for the tool
         //group: "Lines",
         icon: Icons["segment.png"],
-        type: "Segment",
+        //type: "Segment",
+        type: "Extended",
         hint: "This hint will be shown on hover",
         data: [], // Default data
         settings: {}, // Default settings

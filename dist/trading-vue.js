@@ -6235,7 +6235,8 @@ var Ray = /*#__PURE__*/function (_Line) {
         // Descriptor for the tool
         //group: "Lines",
         icon: icons_namespaceObject["segment.png"],
-        type: "Segment",
+        //type: "Segment",
+        type: "Extended",
         hint: "This hint will be shown on hover",
         data: [],
         // Default data

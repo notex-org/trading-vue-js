@@ -6486,9 +6486,9 @@ var HLine = /*#__PURE__*/function () {
       var y = this.layout.$2screen(this.p1[1]); //console.log(x, y);
 
       ctx.fillStyle = this.color;
-      ctx.font = "16px Arial"; // Helper labels
+      ctx.font = "12px Arial"; // Helper labels
 
-      ctx.fillText(this.p1[1], x + 10, y - 20);
+      ctx.fillText(this.p1[1], x + 10, y - 14);
       this.render_pins(ctx);
     },
     use_for: function use_for() {

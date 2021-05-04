@@ -95,13 +95,13 @@ export default {
       return this.$props.settings.p2;
     },
     line_width() {
-      return this.sett.lineWidth || 2;
+      return this.sett.lineWidth || 1;
     },
     color() {
       return this.sett.color || "#645eff";
     },
     prec() {
-      return this.sett.precision || 1;
+      return this.sett.precision || 2;
     },
   },
   data() {

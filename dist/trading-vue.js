@@ -6514,6 +6514,9 @@ var HLine = /*#__PURE__*/function () {
     },
     color: function color() {
       return this.sett.color || "#645eff";
+    },
+    prec: function prec() {
+      return this.sett.precision || 2;
     }
   },
   data: function data() {

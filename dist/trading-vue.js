@@ -6271,8 +6271,9 @@ var Ray = /*#__PURE__*/function (_Line) {
       this.pins[1].on("settled", function () {
         // Call when current tool drawing is finished
         // (Optionally) reset the mode back to 'Cursor'
-        _this.set_state("finished"); //this.$emit("drawing-mode-off");
+        _this.set_state("finished");
 
+        _this.$emit("drawing-mode-off");
       });
     },
     draw: function draw(ctx) {
@@ -6470,7 +6471,8 @@ var HLine = /*#__PURE__*/function () {
       this.pins.push(new Pin(this, "p1")); // Call when current tool drawing is finished
       // (Optionally) reset the mode back to 'Cursor'
 
-      this.set_state("finished"); //this.$emit("drawing-mode-off");
+      this.set_state("finished");
+      this.$emit("drawing-mode-off");
     },
     draw: function draw(ctx) {
       if (!this.p1) return;
@@ -6667,7 +6669,8 @@ var VLine = /*#__PURE__*/function () {
       this.pins.push(new Pin(this, "p1")); // Call when current tool drawing is finished
       // (Optionally) reset the mode back to 'Cursor'
 
-      this.set_state("finished"); //this.$emit("drawing-mode-off");
+      this.set_state("finished");
+      this.$emit("drawing-mode-off");
     },
     draw: function draw(ctx) {
       if (!this.p1) return;

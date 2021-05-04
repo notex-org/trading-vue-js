@@ -21,7 +21,7 @@ export default {
     tool() {
       return {
         // Descriptor for the tool
-        group: "VLines",
+        //group: "VLines",
         icon: Icons["extended.png"],
         type: "Extended",
         hint: "This hint will be shown on hover",

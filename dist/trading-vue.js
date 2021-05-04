@@ -6630,7 +6630,7 @@ var VLine = /*#__PURE__*/function () {
     tool: function tool() {
       return {
         // Descriptor for the tool
-        group: "VLines",
+        //group: "VLines",
         icon: icons_namespaceObject["extended.png"],
         type: "Extended",
         hint: "This hint will be shown on hover",

@@ -1,5 +1,5 @@
 /*!
- * TradingVue.JS - v1.0.2 - Tue May 04 2021
+ * TradingVue.JS - v1.0.2 - Wed May 05 2021
  *     https://github.com/tvjsx/trading-vue-js
  *     Copyright (c) 2019 C451 Code's All Right;
  *     Licensed under the MIT license
@@ -6269,8 +6269,9 @@ var Ray = /*#__PURE__*/function (_Line) {
         state: "tracking"
       }));
       this.pins[1].on("settled", function () {
-        // Call when current tool drawing is finished
+        console.log("finished"); // Call when current tool drawing is finished
         // (Optionally) reset the mode back to 'Cursor'
+
         _this.set_state("finished");
 
         _this.$emit("drawing-mode-off");

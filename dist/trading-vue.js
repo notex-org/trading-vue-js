@@ -6276,6 +6276,12 @@ var Ray = /*#__PURE__*/function (_Line) {
 
         _this.$emit("drawing-mode-off");
       });
+      this.pins[1].on("dragging", function () {
+        console.log("dragging 1");
+      });
+      this.pins[0].on("dragging", function () {
+        console.log("dragging 0");
+      });
     },
     draw: function draw(ctx) {
       if (!this.p1 || !this.p2) return;

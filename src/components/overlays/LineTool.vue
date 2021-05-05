@@ -58,6 +58,13 @@ export default {
         this.set_state("finished");
         this.$emit("drawing-mode-off");
       });
+
+      this.pins[1].on("dragging", () => {
+        console.log("dragging 1");
+      });
+      this.pins[0].on("dragging", () => {
+        console.log("dragging 0");
+      });
     },
     draw(ctx) {
       if (!this.p1 || !this.p2) return;

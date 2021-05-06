@@ -49,10 +49,12 @@ export default {
       this.pins[0].on("settled", () => {
         saveUserItems("pins[0] settled");
       });
+
       // Call when current tool drawing is finished
       // (Optionally) reset the mode back to 'Cursor'
       this.set_state("finished");
       this.$emit("drawing-mode-off");
+      saveUserItems("pins[0] settled");
     },
     draw(ctx) {
       if (!this.p1) return;

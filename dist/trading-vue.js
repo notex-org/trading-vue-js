@@ -6476,7 +6476,10 @@ var HLine = /*#__PURE__*/function () {
     // Called after overlay mounted
     init: function init() {
       // First pin is settled at the mouse position
-      this.pins.push(new Pin(this, "p1")); // Call when current tool drawing is finished
+      this.pins.push(new Pin(this, "p1"));
+      this.pins[0].on("settled", function () {
+        saveUserItems("pins[0] settled");
+      }); // Call when current tool drawing is finished
       // (Optionally) reset the mode back to 'Cursor'
 
       this.set_state("finished");
@@ -6679,7 +6682,10 @@ var VLine = /*#__PURE__*/function () {
     // Called after overlay mounted
     init: function init() {
       // First pin is settled at the mouse position
-      this.pins.push(new Pin(this, "p1")); // Call when current tool drawing is finished
+      this.pins.push(new Pin(this, "p1"));
+      this.pins[0].on("settled", function () {
+        saveUserItems("pins[0] settled");
+      }); // Call when current tool drawing is finished
       // (Optionally) reset the mode back to 'Cursor'
 
       this.set_state("finished");

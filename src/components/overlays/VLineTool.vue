@@ -46,6 +46,9 @@ export default {
     init() {
       // First pin is settled at the mouse position
       this.pins.push(new Pin(this, "p1"));
+      this.pins[0].on("settled", () => {
+        saveUserItems("pins[0] settled");
+      });
       // Call when current tool drawing is finished
       // (Optionally) reset the mode back to 'Cursor'
       this.set_state("finished");

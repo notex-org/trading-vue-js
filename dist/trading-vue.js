@@ -2435,8 +2435,6 @@ var Grid = /*#__PURE__*/function () {
         }
 
         if (_this.drug) {
-          console.log("panmove+drug");
-
           _this.mousedrag(_this.drug.x + event.deltaX, _this.drug.y + event.deltaY);
 
           _this.comp.$emit('cursor-changed', {
@@ -5752,6 +5750,7 @@ function tool_arrayLikeToArray(arr, len) { if (len == null || len > arr.length) 
       this.pins.forEach(function (x) {
         return x.update_from([x.t1 + dt, x.y$1 + dy], true);
       });
+      console.log("drag_update");
     }
   },
   computed: {

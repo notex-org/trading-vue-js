@@ -53,7 +53,7 @@ export default {
         },
         set_state(name) {
             this.$emit('change-settings', {
-                 $state: name
+                $state: name
             })
         },
         watch_uuid(n, p) {
@@ -87,6 +87,7 @@ export default {
             this.pins.forEach(x => x.update_from(
                 [x.t1 + dt, x.y$1 + dy], true
             ))
+            console.log("drag_update");
         }
     },
     computed: {

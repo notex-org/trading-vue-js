@@ -83,7 +83,6 @@ export default class Grid {
                 this.propagate('mousemove', this.touch2mouse(event))
             }
             if (this.drug) {
-                console.log("panmove+drug")
                 this.mousedrag(
                     this.drug.x + event.deltaX,
                     this.drug.y + event.deltaY,

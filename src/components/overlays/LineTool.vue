@@ -52,18 +52,15 @@ export default {
         })
       );
       this.pins[1].on("settled", () => {
-        console.log("finished");
+        saveUserItems("pins[1] settled");
         // Call when current tool drawing is finished
         // (Optionally) reset the mode back to 'Cursor'
         this.set_state("finished");
         this.$emit("drawing-mode-off");
       });
 
-      this.pins[1].on("dragging", () => {
-        console.log("dragging 1");
-      });
-      this.pins[0].on("dragging", () => {
-        console.log("dragging 0");
+      this.pins[0].on("settled", () => {
+        saveUserItems("pins[0] settled");
       });
     },
     draw(ctx) {

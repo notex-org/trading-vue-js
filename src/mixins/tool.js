@@ -35,6 +35,9 @@ export default {
                 }
             })
             this.mouse.on('mouseup', e => {
+                if (this.drag) {
+                    saveUserItems("mouseup && drug")
+                }
                 this.drag = null
                 this.$emit('scroll-lock', false)
             })
@@ -87,7 +90,6 @@ export default {
             this.pins.forEach(x => x.update_from(
                 [x.t1 + dt, x.y$1 + dy], true
             ))
-            console.log("drag_update");
         }
     },
     computed: {

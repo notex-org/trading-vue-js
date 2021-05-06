@@ -5679,6 +5679,10 @@ function tool_arrayLikeToArray(arr, len) { if (len == null || len > arr.length) 
         }
       });
       this.mouse.on('mouseup', function (e) {
+        if (_this.drag) {
+          saveUserItems("mouseup && drug");
+        }
+
         _this.drag = null;
 
         _this.$emit('scroll-lock', false);
@@ -5750,7 +5754,6 @@ function tool_arrayLikeToArray(arr, len) { if (len == null || len > arr.length) 
       this.pins.forEach(function (x) {
         return x.update_from([x.t1 + dt, x.y$1 + dy], true);
       });
-      console.log("drag_update");
     }
   },
   computed: {
@@ -6270,18 +6273,15 @@ var Ray = /*#__PURE__*/function (_Line) {
         state: "tracking"
       }));
       this.pins[1].on("settled", function () {
-        console.log("finished"); // Call when current tool drawing is finished
+        saveUserItems("pins[1] settled"); // Call when current tool drawing is finished
         // (Optionally) reset the mode back to 'Cursor'
 
         _this.set_state("finished");
 
         _this.$emit("drawing-mode-off");
       });
-      this.pins[1].on("dragging", function () {
-        console.log("dragging 1");
-      });
-      this.pins[0].on("dragging", function () {
-        console.log("dragging 0");
+      this.pins[0].on("settled", function () {
+        saveUserItems("pins[0] settled");
       });
     },
     draw: function draw(ctx) {

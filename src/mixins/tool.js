@@ -78,7 +78,6 @@ export default {
         remove_tool() {
             if (this.selected) {
                 this.$emit('remove-tool')
-                saveUserItems("remove_tool")
             }
         },
         start_drag() {

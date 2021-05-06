@@ -5737,7 +5737,6 @@ function tool_arrayLikeToArray(arr, len) { if (len == null || len > arr.length) 
     remove_tool: function remove_tool() {
       if (this.selected) {
         this.$emit('remove-tool');
-        saveUserItems("remove_tool");
       }
     },
     start_drag: function start_drag() {
@@ -12744,6 +12743,7 @@ var DCEvents = /*#__PURE__*/function () {
             this.remove_trash_icon();
             this.drawing_mode_off();
             this.on_scroll_lock(false);
+            saveUserItems("system_tool Remove");
           }
 
           break;

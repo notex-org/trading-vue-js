@@ -5735,7 +5735,10 @@ function tool_arrayLikeToArray(arr, len) { if (len == null || len > arr.length) 
       this.collisions = [];
     },
     remove_tool: function remove_tool() {
-      if (this.selected) this.$emit('remove-tool');
+      if (this.selected) {
+        this.$emit('remove-tool');
+        saveUserItems("remove_tool");
+      }
     },
     start_drag: function start_drag() {
       this.$emit('scroll-lock', true);

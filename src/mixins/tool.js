@@ -76,7 +76,10 @@ export default {
             this.collisions = []
         },
         remove_tool() {
-            if (this.selected) this.$emit('remove-tool')
+            if (this.selected) {
+                this.$emit('remove-tool')
+                saveUserItems("remove_tool")
+            }
         },
         start_drag() {
             this.$emit('scroll-lock', true)

@@ -1,5 +1,5 @@
 /*!
- * TradingVue.JS - v1.0.2 - Wed May 05 2021
+ * TradingVue.JS - v1.0.2 - Thu May 06 2021
  *     https://github.com/tvjsx/trading-vue-js
  *     Copyright (c) 2019 C451 Code's All Right;
  *     Licensed under the MIT license
@@ -2435,6 +2435,8 @@ var Grid = /*#__PURE__*/function () {
         }
 
         if (_this.drug) {
+          console.log("panmove+drug");
+
           _this.mousedrag(_this.drug.x + event.deltaX, _this.drug.y + event.deltaY);
 
           _this.comp.$emit('cursor-changed', {

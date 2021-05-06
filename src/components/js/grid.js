@@ -45,9 +45,9 @@ export default class Grid {
 
         let mc = this.mc = new Hammer.Manager(this.canvas)
         let T = Utils.is_mobile ? 10 : 0
-        mc.add(new Hammer.Pan({ threshold: T}))
+        mc.add(new Hammer.Pan({ threshold: T }))
         mc.add(new Hammer.Tap())
-        mc.add(new Hammer.Pinch({ threshold: 0}))
+        mc.add(new Hammer.Pinch({ threshold: 0 }))
         mc.get('pinch').set({ enable: true })
         if (Utils.is_mobile) mc.add(new Hammer.Press())
 
@@ -83,6 +83,7 @@ export default class Grid {
                 this.propagate('mousemove', this.touch2mouse(event))
             }
             if (this.drug) {
+                console.log("panmove+drug")
                 this.mousedrag(
                     this.drug.x + event.deltaX,
                     this.drug.y + event.deltaY,
@@ -119,7 +120,7 @@ export default class Grid {
             this.update()
         })
 
-        mc.on('pinchstart', () =>  {
+        mc.on('pinchstart', () => {
             this.drug = null
             this.pinch = {
                 t: this.range[1] - this.range[0],
@@ -127,7 +128,7 @@ export default class Grid {
             }
         })
 
-        mc.on('pinchend', () =>  {
+        mc.on('pinchend', () => {
             this.pinch = null
         })
 
@@ -210,7 +211,7 @@ export default class Grid {
             original: e.srcEvent,
             layerX: e.center.x + this.offset_x,
             layerY: e.center.y + this.offset_y,
-            preventDefault: function() {
+            preventDefault: function () {
                 this.original.preventDefault()
             }
         }
@@ -397,7 +398,7 @@ export default class Grid {
         let tl = this.comp.config.ZOOM_MODE === 'tl'
         if (event.originalEvent.ctrlKey || tl) {
             let offset = event.originalEvent.offsetX
-            let diff1 = offset / (this.canvas.width-1) * diff
+            let diff1 = offset / (this.canvas.width - 1) * diff
             let diff2 = diff - diff1
             this.range[0] -= diff1
             this.range[1] += diff2
@@ -407,7 +408,7 @@ export default class Grid {
 
         if (tl) {
             let offset = event.originalEvent.offsetY
-            let diff1 = offset / (this.canvas.height-1) * 2
+            let diff1 = offset / (this.canvas.height - 1) * 2
             let diff2 = 2 - diff1
             let z = diff / (this.range[1] - this.range[0])
             //rezoom_range(z, diff_x, diff_y)
